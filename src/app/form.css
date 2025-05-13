@@ -1,0 +1,42 @@
+.input{
+    border-radius:7px;
+    margin: auto;
+    height:50px;
+    width:600px;
+    border:1px;
+    background:wheat;
+    color:crimson;
+    align-items: start;
+    padding: 10px;
+}
+
+.formm{
+    text-align: center;
+    justify-content: center;
+    padding: 30px;
+    margin: 33px;
+    color: green;
+    display: flex;
+    flex-direction: column;
+}
+
+.input::placeholder{
+    text-align: start;
+    padding: 15px;
+    font-size: 21px;
+}
+
+.submit{
+    border-radius:7px;
+    margin: auto;
+    height:50px;
+    width:600px;
+    border:1px;
+    background:rgb(158, 3, 158);
+    color:white;
+    align-items: start;
+    font-size: 25px;
+    padding: 10px;
+    border:5px;
+    border-color: bisque;
+}
