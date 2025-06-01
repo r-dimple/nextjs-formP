@@ -1,8 +1,8 @@
 "use client"
-import { useState } from "react"
-import "../form.css"
+import { useEffect, useState } from "react"
+import "../../form.css"
 
-export default function Page(){
+export default function Page(props){
     const [name,setName] = useState('');
     const [phone,setPhone] = useState('');
     const [dob,setDob] = useState('');
@@ -10,18 +10,16 @@ export default function Page(){
     const [country,setCountry] = useState('');
     const [job,setJob] = useState('');
 
-    const submitform = async (e) =>{
-        e.preventDefault();
-        console.log(name,phone,dob,add,country,job)
-        let result = await fetch("http://localhost:3000/api/forms",{
-            method:"POST",
-            body:JSON.stringify({name,phone,dob,add,country,job})
-            
-        });
-        console.log(result)
-         alert("new form added")
-        result= result.json();
-    }
+    useEffect(()=>{
+        formdetails();
+    },[]);
+
+    const formdetails = async() =>{
+        let formId = props.params.editform;
+        console.log(formId)
+        
+        }   
+
 
     return(
         <div>
@@ -33,7 +31,7 @@ export default function Page(){
                 <input type="text" placeholder="Address" value={add} className="input" onChange={(e)=>setAdd(e.target.value)} /> <br/>
                 <input type="text" placeholder="Job Title" value={job} className="input" onChange={(e)=>setJob(e.target.value)}/><br/>
                 <input type="text" placeholder="Country/Region" value={country} className="input" onChange={(e)=>setCountry(e.target.value)}/> <br/>
-                <button type="submit" className="submit" onClick={submitform}>Submit</button>
+                <button type="submit" className="submit">Submit</button>
             </form>
         </div>
     )
